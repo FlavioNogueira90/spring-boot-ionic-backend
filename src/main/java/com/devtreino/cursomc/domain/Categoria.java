@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 
 import jakarta.persistence.Entity;
@@ -23,7 +22,6 @@ public class Categoria extends SerializableSerializer {
 	private String nome;
 	
 	//ASSOCIAÇÃO COM PRODUTOS MANY TO MANY
-	@JsonManagedReference
 	@ManyToMany(mappedBy = "categorias")
 	private List<Produto> produtos = new ArrayList<>();
 	
