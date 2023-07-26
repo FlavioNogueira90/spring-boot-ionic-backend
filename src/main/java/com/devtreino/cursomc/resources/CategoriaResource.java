@@ -40,7 +40,8 @@ public class CategoriaResource {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody Categoria obj){
+	public ResponseEntity<Void> insert(@RequestBody CategoriaDto objDto){
+		Categoria obj = categoriaService.fromDTO(objDto);
 		obj = categoriaService.insert(obj);
 		//Retornar a URI do novo objeto incluido na base
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
